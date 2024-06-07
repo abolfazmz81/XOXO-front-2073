@@ -1,1 +1,23 @@
+:root {
+    --black-700: #000;
+    --bg-gradiant:#3B2A9F;
+    --secondary:#FA8305;
+    --primary: #3B2A9F;
+    --primary-100: #5141AA;
+    --brown:#1C140F;
+    --black: #070707;
+  }
 
+@font-face {
+    font-family: poppins;
+    src: url(./assets/fonts/Poppins-Regular.ttf);
+  }
+  @font-face {
+    font-family: poppins-thin;
+    src: url(./assets/fonts/Poppins-Thin.ttf);
+  }
+  
+  @font-face {
+    font-family: poppins-bold;
+    src: url(./assets/fonts/Poppins-Bold.ttf);
+  }
