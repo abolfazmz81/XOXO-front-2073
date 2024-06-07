@@ -1,9 +1,9 @@
 import React from "react";
 
-const table = () =>{
+const Table = () =>{
     return(
         <div > bye </div>
     );
 };
 
-export default table;
+export default Table;

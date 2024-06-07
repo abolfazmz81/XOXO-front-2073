@@ -1,9 +1,11 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './HomePage.css';
 
-const homePage = () =>{
+const HomePage = () =>{
     return(
-        <div> salam </div>
+        <div className="test" > salam </div>
     );
 };
 
-export default homePage;
+export default HomePage;
