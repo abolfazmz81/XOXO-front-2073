@@ -9,10 +9,11 @@
     font-family: poppins ;
     border: none;
     color: white;
-    padding: 5px 55px;
+    padding: 5px 80px;
     border-radius: 25px;
 }
 .scores{
     font-family: poppins ;
     color: white;
+    font-size: 20px;
 }

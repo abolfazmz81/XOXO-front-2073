@@ -3,9 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Header.css'
 const Header = () =>{
     return(
-        <div className="header h2"> 
+        <div className="header h1"> 
             Tic-Tac-Toe
-        </div>
+        </div>  
     );
 };
 
