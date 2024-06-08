@@ -15,6 +15,7 @@
     background: var(--primary);
     border-color: black;
     border-radius: 10px;
+    color: white;
 }
 
 .textholder::placeholder{
