@@ -4,6 +4,9 @@ import Header from "../common/Header";
 import "./gamedesign.css";
 
 const GameDesign = () =>{
+    const location = useLocation();
+    const { playerOne, playerTwo } = location.state || { playerOne: "", playerTwo: "" };
+
     return(
         <div></div>
     );
