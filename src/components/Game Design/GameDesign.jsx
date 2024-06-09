@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../common/Header";
 import "./gamedesign.css";
 
@@ -51,6 +51,22 @@ const GameDesign = () =>{
                   ];
             }
 
+            try{
+                const response = await fetch("http://127.0.0.1:8000/scores", {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                  });
+
+                  if (!response.ok) {
+                    alert('Network response was not ok');
+                  }
+            }
+            catch(error){
+                console.error('Error sending POST request:', error);
+            }
             navigate("/login");
         }
     }
@@ -65,6 +81,7 @@ const GameDesign = () =>{
         checkwinner(newBoard);
         // Update the state
         setBoard(newBoard);
+
         setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
     };
 
