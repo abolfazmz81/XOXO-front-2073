@@ -4,11 +4,56 @@ import Header from "../common/Header";
 import "./gamedesign.css";
 
 const GameDesign = () =>{
+    let win = 0;
+    const navigate = useNavigate();
     const location = useLocation();
     const { playerOne, playerTwo } = location.state || { playerOne: "", playerTwo: "" };
 
     const [board, setBoard] = useState(Array(9).fill(""));
     const [currentPlayer, setCurrentPlayer] = useState("X");
+
+    const checkwinner = async (board)=>{
+        if(board[0] == board[1] && board[0] == board[2  ] && board[0]!=""){win = 1}
+        if(board[0] == board[3] && board[0] == board[6] && board[0]!=""){win = 1}
+        if(board[0] == board[4] && board[0] == board[8] && board[0]!=""){win = 1}
+        if(board[1] == board[4] && board[1] == board[7] && board[1]!=""){win = 1}
+        if(board[2] == board[5] && board[2] == board[8] && board[2]!=""){win = 1}
+        if(board[2] == board[4] && board[2] == board[6] && board[2]!=""){win = 1}
+        if(board[3] == board[4] && board[3] == board[5] && board[3]!=""){win = 1}
+        if(board[6] == board[7] && board[6] == board[8] && board[6]!=""){win = 1}
+
+        if(win == 1){
+            let data = [];
+            if(currentPlayer == "X"){
+                alert("player " + playerOne + " is the winner");
+                data = [
+                    {
+                      name: playerOne,
+                      status: "WIN"
+                    },
+                    {
+                      name: playerTwo,
+                      status: "LOSE"
+                    }
+                  ];
+            }
+            else{
+                alert("player " + playerTwo + " is the winner");
+                data = [
+                    {
+                      name: playerTwo,
+                      status: "WIN"
+                    },
+                    {
+                      name: playerOne,
+                      status: "LOSE"
+                    }
+                  ];
+            }
+
+            navigate("/login");
+        }
+    }
 
     const handleClick = (index) => {
         // Check if the cell is already filled
@@ -17,7 +62,7 @@ const GameDesign = () =>{
         // Update the board with the current player's sign
         const newBoard = board.slice();
         newBoard[index] = currentPlayer;
-
+        checkwinner(newBoard);
         // Update the state
         setBoard(newBoard);
         setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
